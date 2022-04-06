@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_EED47FB5-8A7C-44F3-A786-563FD2DAF015" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:included2="https://kiegroup.org/dmn/_2E7CC4A2-92C4-44F8-B424-A29590D2AD0B" xmlns:included1="https://kiegroup.org/dmn/_0B86AF30-CBEE-4336-A45E-122601BC34BC" id="_513E7E1D-87AA-4A17-B6CC-39219C8095AB" name="TransactionMonitoringDMN" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_EED47FB5-8A7C-44F3-A786-563FD2DAF015">
   <dmn:extensionElements/>
   <dmn:import id="_D1FA99F6-DD5A-414F-B9DC-3EDA61357773" name="fraud" namespace="https://kiegroup.org/dmn/_2E7CC4A2-92C4-44F8-B424-A29590D2AD0B" locationURI="staticFraudRules.dmn" importType="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
@@ -143,19 +144,6 @@
     <dmn:extensionElements/>
     <dmn:variable id="_16B231A0-AC64-4309-A7D7-3C1B33BEAC04" name="Customer" typeRef="Customer"/>
   </dmn:inputData>
-  <dmn:decision id="_DDA31C8D-3634-4065-91AD-53C46B59D753" name="Customer Alert">
-    <dmn:extensionElements/>
-    <dmn:variable id="_738F481A-ACE1-4491-A30D-EADF99D1EB51" name="Customer Alert" typeRef="string"/>
-    <dmn:informationRequirement id="_0738751F-E9FD-4C40-9731-C52600AB344F">
-      <dmn:requiredInput href="#_7B5971B6-2820-4460-B286-5DA7290C8F85"/>
-    </dmn:informationRequirement>
-    <dmn:informationRequirement id="_6DC6826B-3727-4464-A8B1-E12CFEC4D2C8">
-      <dmn:requiredDecision href="#_E44D4ACF-1F12-496A-AA31-CDDB539F189B"/>
-    </dmn:informationRequirement>
-    <dmn:literalExpression id="_DFB5E36F-3335-4B7A-BDC7-2F45FD491CD7">
-      <dmn:text>Aml Alert != null and Customer.riskIndex &gt; 1</dmn:text>
-    </dmn:literalExpression>
-  </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_34017E4B-B128-4996-AA72-52C203A1F6EC" name="DRG">
       <di:extension>
@@ -203,9 +191,6 @@
             <kie:width>300</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_ADA52EC0-7BEC-466B-A2EC-CF8AE54FCC8A">
-            <kie:width>300</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_DFB5E36F-3335-4B7A-BDC7-2F45FD491CD7">
             <kie:width>300</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
@@ -272,15 +257,6 @@
         <dc:Bounds x="769" y="543" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_DDA31C8D-3634-4065-91AD-53C46B59D753" dmnElementRef="_DDA31C8D-3634-4065-91AD-53C46B59D753" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="619" y="228" width="100" height="50"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_6143240F-3DFB-4E1D-BA1C-D7D9AF1E7AD6" dmnElementRef="_6143240F-3DFB-4E1D-BA1C-D7D9AF1E7AD6">
         <di:waypoint x="490" y="568"/>
         <di:waypoint x="490" y="394"/>
@@ -300,14 +276,6 @@
       <dmndi:DMNEdge id="dmnedge-drg-_1380D28E-8D93-4F23-A339-D3FF9E857D1E" dmnElementRef="_1380D28E-8D93-4F23-A339-D3FF9E857D1E">
         <di:waypoint x="1109" y="363"/>
         <di:waypoint x="870" y="363"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_0738751F-E9FD-4C40-9731-C52600AB344F" dmnElementRef="_0738751F-E9FD-4C40-9731-C52600AB344F">
-        <di:waypoint x="819" y="568"/>
-        <di:waypoint x="669" y="278"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_6DC6826B-3727-4464-A8B1-E12CFEC4D2C8" dmnElementRef="_6DC6826B-3727-4464-A8B1-E12CFEC4D2C8">
-        <di:waypoint x="820" y="363"/>
-        <di:waypoint x="669" y="278"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
